@@ -8,8 +8,8 @@
 namespace Tests\Unit\VZTLogTest;
 
 
-use App\Modules\Services\VZTLog\Logic\VZTLogLogic;
-use App\Modules\Services\VZTLog\Model\VZTScopedLogEntry;
+use VZT\Laravel\VZTLog\Logic\VZTLogLogic;
+use VZT\Laravel\VZTLog\Model\VZTScopedLogEntry;
 use Psr\Log\LoggerInterface;
 use Tests\TestCase;
 use Tests\Unit\VZTLogTest\Helpers\LogsCollector;
