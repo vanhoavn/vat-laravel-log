@@ -1,0 +1,35 @@
+{
+    "name": "vanhoavn/vat-laravel-log",
+    "description": "VZT Logger module for Laravel.",
+    "license": "MIT",
+    "homepage": "https://vhn.vn/",
+    "support": {
+        "issues": "https://github.com/vanhoavn/vat-laravel-log/isues",
+        "source": "https://github.com/vanhoavn/vat-laravel-logs"
+    },
+    "keywords": ["laravel", "log", "vzt"],
+    "authors": [{
+        "name": "vanhoa",
+        "email": "vanhoa@vhn.vn"
+    }],
+    "require": {
+        "php": "^7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "VZT\\Laravel\\VZTLog\\": ""
+        }
+    },
+    "suggest": {},
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "VZT\\Laravel\\VZTLog\\VZTLogModuleProvider"
+            ]
+        }
+    }
+}
