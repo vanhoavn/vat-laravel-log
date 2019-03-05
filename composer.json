@@ -1,11 +1,11 @@
 {
-    "name": "vanhoavn/vat-laravel-log",
+    "name": "vanhoavn/vzt-laravel-log",
     "description": "VZT Logger module for Laravel.",
     "license": "MIT",
     "homepage": "https://vhn.vn/",
     "support": {
-        "issues": "https://github.com/vanhoavn/vat-laravel-log/isues",
-        "source": "https://github.com/vanhoavn/vat-laravel-logs"
+        "issues": "https://github.com/vanhoavn/vzt-laravel-log/isues",
+        "source": "https://github.com/vanhoavn/vzt-laravel-logs"
     },
     "keywords": ["laravel", "log", "vzt"],
     "authors": [{
