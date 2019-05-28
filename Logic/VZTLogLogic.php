@@ -4,7 +4,6 @@ namespace VZT\Laravel\VZTLog\Logic;
 
 /** @noinspection PhpHierarchyChecksInspection */
 
-use App\Modules\AppFramework\Exceptions\ZonException;
 use VZT\Laravel\VZTLog\Model\VZTLogContextBuilder;
 use VZT\Laravel\VZTLog\Model\VZTScopedLogEntry;
 use Psr\Log\LoggerInterface;
@@ -347,7 +346,7 @@ class VZTLogLogic
 
             if (in_array($level, self::REPORT_LEVELS)) {
                 if (array_key_exists('exception', $context)) {
-                    if ($context['exception'] instanceof ZonException) {
+                    if (method_exists($context['exception'], 'isIntended')) {
                         if ($context['exception']->isIntended()) $level = 'info';
                     }
                     $dont_report = config('exceptions.dont_log');
