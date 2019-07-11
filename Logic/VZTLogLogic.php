@@ -52,7 +52,7 @@ class VZTLogLogic
     {
         $log_entry           = new VZTScopedLogEntry($this, 'info', $name, $context);
         $current_level       = count($this->scoped_log);
-        $this->scoped_log [] = $log_entry;
+        $this->scoped_log[] = $log_entry;
         $exception           = null;
         try {
             $closure();
@@ -372,9 +372,7 @@ class VZTLogLogic
                     if (@$context['exception']) {
                         fprintf(STDERR, "%s\n%s\n", $context['exception']->getMessage(), $context['exception']->getTraceAsString());
                     }
-                }
-
-                {
+                } {
                     $min_level = strtolower(config('logging.min_logging_level'));
                     if (array_key_exists($min_level, VZTScopedLogEntry::REMAP)) {
                         $min_level = VZTScopedLogEntry::REMAP[$min_level];
@@ -405,14 +403,14 @@ class VZTLogLogic
      */
     private function invokeStackedWithLevel($level, $name, $context = [])
     {
-        return new class($this, $this->scoped_log, $level, $name, $context)
+        return new class ($this, $this->scoped_log, $level, $name, $context)
         {
             private $logs;
 
             function __construct($logger, &$logs, $level, $name, $context)
             {
                 $this->logs    = &$logs;
-                $this->logs [] = new VZTScopedLogEntry($logger, $level, $name, $context);
+                $this->logs[] = new VZTScopedLogEntry($logger, $level, $name, $context);
             }
 
             function __destruct()
@@ -433,14 +431,14 @@ class VZTLogLogic
             $short = $name;
         }
         $this->info($name);
-        return new class($this, $this->context, $short)
+        return new class ($this, $this->context, $short)
         {
             private $context;
 
             function __construct($logger, &$context, $name)
             {
                 $this->context    = &$context;
-                $this->context [] = $name;
+                $this->context[] = $name;
             }
 
             function __destruct()
@@ -448,5 +446,28 @@ class VZTLogLogic
                 array_pop($this->context);
             }
         };
+    }
+
+    /**
+     * @return string[]
+     */
+    public function currentContext()
+    {
+        return $this->context;
+    }
+
+    /**
+     * @return string
+     */
+    public function currentContextString()
+    {
+        return \implode("", array_map(function ($x) {
+            if (is_string($x)) {
+                if (!\preg_match('@^\[.*?\]$@ism', $x)) $x = "[$x]";
+            } else {
+                $x = "{" . json_encode($x) . "}";
+            }
+            return $x;
+        }, $this->context));
     }
 }
