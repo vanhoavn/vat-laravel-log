@@ -183,7 +183,7 @@ class VZTLogLogic
      */
     function err($message, $context = [])
     {
-        return $this->invokeWithLevel('err', $message, $context);
+        return $this->invokeWithLevel('error', $message, $context);
     }
 
     /**
@@ -194,7 +194,7 @@ class VZTLogLogic
      */
     function errScope($name, $context = [])
     {
-        return $this->invokeStackedWithLevel('err', $name, $context);
+        return $this->invokeStackedWithLevel('error', $name, $context);
     }
 
     /**
