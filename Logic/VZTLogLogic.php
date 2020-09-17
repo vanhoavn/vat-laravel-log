@@ -139,7 +139,7 @@ class VZTLogLogic
      */
     function warn($message, $context = [])
     {
-        return $this->invokeWithLevel('warn', $message, $context);
+        return $this->invokeWithLevel('waring', $message, $context);
     }
 
     /**
@@ -150,7 +150,7 @@ class VZTLogLogic
      */
     function warnScope($name, $context = [])
     {
-        return $this->invokeStackedWithLevel('warn', $name, $context);
+        return $this->invokeStackedWithLevel('warning', $name, $context);
     }
 
     /**
@@ -227,7 +227,7 @@ class VZTLogLogic
      */
     function crit($message, $context = [])
     {
-        return $this->invokeWithLevel('crit', $message, $context);
+        return $this->invokeWithLevel('critical', $message, $context);
     }
 
     /**
@@ -238,7 +238,7 @@ class VZTLogLogic
      */
     function critScope($name, $context = [])
     {
-        return $this->invokeStackedWithLevel('crit', $name, $context);
+        return $this->invokeStackedWithLevel('critical', $name, $context);
     }
 
     /**
@@ -293,7 +293,7 @@ class VZTLogLogic
      */
     function emerg($message, $context = [])
     {
-        return $this->invokeWithLevel('emerg', $message, $context);
+        return $this->invokeWithLevel('emergency', $message, $context);
     }
 
     /**
@@ -304,7 +304,7 @@ class VZTLogLogic
      */
     function emergScope($name, $context = [])
     {
-        return $this->invokeStackedWithLevel('emerg', $name, $context);
+        return $this->invokeStackedWithLevel('emergency', $name, $context);
     }
 
     /**
