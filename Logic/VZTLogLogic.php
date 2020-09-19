@@ -139,7 +139,7 @@ class VZTLogLogic
      */
     function warn($message, $context = [])
     {
-        return $this->invokeWithLevel('waring', $message, $context);
+        return $this->invokeWithLevel('warning', $message, $context);
     }
 
     /**
